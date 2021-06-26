@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 自增自减运算符
+        var num = 1;
+        console.log(++num); // 2
+        var num = 1;
+        console.log(num++); // 1
+        console.log(num); // 2
+        var num = 1;
+        console.log(--num); // 0
+        var num = 1;
+        console.log(num--); // 1
+        console.log(num); // 0
+
+        var num = 1;
+        console.log(num++ + 1); // 2
+        var num = 1;
+        console.log(++num + 1); // 3
+
+        // 比较运算符，有：>,<,=,>=,<=,!=,==,===,!==
+        // 比较运算符返回一个Boolean值，大小于号就不说了。主要讲讲后四个。
+        // !=和== 会对需要判断的数进行转型，如果转型后值能相等则返回true
+        // !==和=== 不会对两边的数据转型，必须要求值和类型都一致
+        console.log(1 == '1'); // true
+        console.log(1 === '1'); // false
+        console.log(1 != '1'); // false
+        console.log(1 !== '1'); // true
+
+        // 逻辑运算符 &&(与), ||(或), !(非)
+        // 逻辑与，两边都为true才为true
+        // 逻辑或，两边只要有一个true则为true
+        // 逻辑非，对一个Boolean值取反
+        // 短路运算(逻辑中断)：如 a>b || b>c，在知道a>b为true和逻辑运算符为||时，不会去判断b>c，而是直接返回true
+        console.log(true && false); // false
+        console.log(true && true); // true
+        console.log(true || false); // true
+        console.log(false || false); // false
+        console.log(!true); // false
+
+        // 赋值运算符=可以与算术运算符组合成复合赋值运算符
+        // 格式为 [变量 算术运算符= 变量或值]，表示为：a = a算术运算符(变量或值)
+        var a = 1;
+        a += 1; // 相等于：a = a + 1;
+        console.log(a); // 2
+        
+        // 运算符优先级，看似很多，但不需要特意去记，多刷两道算法就自然而然知道怎么看表达式了。注意一下逻辑与&&比逻辑或||优先级高。
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const变量关键字与let在行为上基本类似，包括作用域和变量提升。
+        // const类似于java中的final关键字，设置变量为静态常量，声明时必须赋值，且不能修改
+        const hello = "hello";
+        hello = "hi"; // 报错：给常量赋值
+        // 如果const时对象类型，修改对象内部的属性是允许的。
+        const hi = {};
+        hi.value = "hi"; // 不会报错
+    </script>
+</body>
+</html>

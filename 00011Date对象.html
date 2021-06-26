@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Date() 对象是构造函数，使用new操作符创建。
+        var date = new Date(); // 无参时返回当前系统时间
+        console.log(date); // Fri Jun 25 2021 16:45:22 GMT+0800 (中国标准时间)
+        var date = new Date(2021, 6, 1);
+        console.log(date); // Thu Jul 01 2021 00:00:00 GMT+0800 (中国标准时间)
+        var date = new Date('2021-6-1 8:8:8'); // 不推荐
+        console.log(date); // Tue Jun 01 2021 08:08:08 GMT+0800 (中国标准时间)
+
+        // Date对象的操作方法
+        var date = new Date();
+        console.log(date.getFullYear()); // 获取当前年
+        console.log(date.getMonth()); // 获取当前月，比正常月份少1
+        console.log(date.getDate()); // 获取当前日
+        console.log(date.getDay()); // 获取当前星期，周日为0
+        console.log(date.getHours()); // 获取当前的时，24小时制
+        console.log(date.getMinutes()); // 获取当前分
+        console.log(date.getSeconds()); // 获取当前秒
+        var arr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+        console.log('今天是' + date.getFullYear() + '年' + (date.getMonth() + 1) + '月' + date.getDate() + '日 '
+            + arr[date.getDay()] + ' ' + date.getHours() + '时' + date.getMinutes() + '分' + date.getSeconds() + '秒');
+
+        // 获取时间戳：getTime(), valueof()。 表示从1970年1月1日0时0分0秒（UTC，即协调世界时）距离该日期对象所代表时间的毫秒数。
+        console.log(date.valueOf());
+        console.log(date.getTime());
+        console.log(Date.now()); // HTML5新增
+        // 测试某段代码运行时间
+        var end, start, i;
+        start = new Date();
+        for (i = 0; i < 10000000; i++) {
+            Math.sqrt(i);
+        }
+        end = new Date();
+        console.log("Operation took " + (end.getTime() - start.getTime()) + " msec");
+
+        // 一元+运算符将Date转换成Number类型。+new Date()相当于 ToNumber(new Date())。
+        var nowTime = +new Date(); 
+        var inputime = +new Date('2021-6-24 17:16:8');
+        var times = (nowTime - inputime) / (1000*60/60);
+        console.log(times);
+    </script>
+</body>
+
+</html>

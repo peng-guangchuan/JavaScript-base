@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 一些js内置对象，js原生支持的api，Math、Date、Array、String
+        // 原生的内置对象通常是静态的，不需要使用new操作符创建，可以直接 对象名.方法
+        console.log('PI=' + Math.PI); // PI=3.141592653589793
+        var arr = [2, 3, 1, 1, 99, -1, -9];
+        console.log('Max=' + Math.max(...arr)); // Max=99
+        console.log('Min=' + Math.min(1,99,22,-1,-9)); // Max=-9
+        console.log(Math.max(1, 99, 'abc')); // NaN
+        console.log(Math.max()); // -Infinity
+        console.log(Math.min()); // Infinity
+
+        // 创建自己的数学对象 myMath
+        var myMath = {
+            PI:3.14,
+            max:function(){
+                var max = arguments[0];
+                for(let i = 1;i<arguments.length;i++){
+                    if (arguments[i] > max) {
+                        max = arguments[i];
+                    }
+                }
+                return max;
+            },
+            min:function(){
+                var min = arguments[0];
+                for(let i = 1;i<arguments.length;i++){
+                    if (arguments[i] < min) {
+                        min = arguments[i];
+                    }
+                }
+                return min;
+            }
+        }
+        console.log('myMath='+myMath.PI); // 3.14
+        console.log(myMath.max(1,2,3,4)); // 4
+        console.log(myMath.min(1,2,3,4)); // 1
+
+        // 绝对值方法
+        console.log(Math.abs(100)); // 100
+        console.log(Math.abs(-100)); // 100
+        console.log(Math.abs('-99')); // 99
+        console.log(Math.abs('abc')); // NaN
+        // 取整的三个方法：floor(), ceil(), round()
+        // floor() 向下取整
+        console.log(Math.floor(1.9)); // 1
+        // ceil() 向上取整
+        console.log(Math.ceil(1.1)); // 2
+        // round() 四舍五入，小数5往大的取整
+        console.log(Math.round(1.1)); // 1
+        console.log(Math.round(1.5)); // 1
+        console.log(Math.round(1.9)); // 2
+        console.log(Math.round(-1.1)); // -1
+        console.log(Math.round(-1.5)); // -1
+        console.log(Math.round(-1.9)); // -2
+
+        // random() 随机数。https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+        console.log(Math.random()); // 0~1的浮点数
+        function getintrandom(min,max) { 
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+         }
+         console.log(getintrandom(1,10));
+         var arr = ['张三','李四','王五'];
+         console.log(arr[getintrandom(0,arr.length-1)]);
+    </script>
+</body>
+
+</html>

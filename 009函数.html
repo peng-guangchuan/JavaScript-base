@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // arguments 是一个伪数组，有length属性，但是没有操作符方法，只能用来获取
+        // 只有函数才有arguments对象，并且每个函数都内置了
+        function sum() {
+            console.log(arguments);
+            for (let i = 0; i < arguments.length; i++) {
+                console.log(arguments[i]);
+            }
+        }
+        sum(1, 2, 'sum');
+
+        // 函数声明方式
+        function fu() { };
+        var fu = function () { }; // 匿名
+
+        // 作用域
+        var aaa = 10;
+        console.log(aaa);
+        function fn() {
+            var aaa = 20;
+            var bbb = 1;
+            console.log(aaa);
+        }
+        fn();
+        console.log(aaa);
+        // console.log(bbb); // es6后报错
+        // 作用域链，最内层的输出num3会不断由里向外寻找num3的变量，输出第一次遇到num3的变量值，没有则为全局。
+        var num3 = 10;
+        function fn10() {
+            var num3 = 20;
+            function fn20() {
+                console.log(num3);
+            }
+            fn20();
+        }
+        fn10();
+
+        // 预解析。主要为变量提升和函数提升。
+        // 变量提升只提升声明操作，不提升赋值操作。
+        // console.log(num4); // 报错
+        console.log(num5); // undefined
+        var num5 = 15;
+        // 函数提升
+        fn25(); // 正确
+        function fn25() {
+            console.log(25);
+        }
+        // 最后两行代码相当于
+        // var fn30;
+        // fn30();
+        // fn30 = function(){console.log(30);}
+        // fn30(); // 报错
+        // var fn30 = function(){console.log(30);}
+
+        var num = 10;
+        fun();
+        function fun() {
+            console.log(num); // undefined
+            var num = 20;
+        }
+
+        // 经典案例
+        fun1();
+        console.log(b);
+        console.log(c);
+        console.log(a); // 局部变量，报错
+        function fun1() {
+            var a = b = c = 11; // 相当于 var a = 9; b = 9; c = 9; b、c为全局变量
+            // var a = 9; var b = 9; var c = 9; 全部声明赋值
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }
+    </script>
+</body>
+
+</html>

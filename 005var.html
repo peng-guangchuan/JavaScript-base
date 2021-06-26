@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.var的作用域为局部变量,作用范围为函数作用域
+        function test(){
+            var temp = "abc";
+        }
+        test();
+        console.log(temp); // 无法输出
+
+        // 2.var的声明提升，在某局部作用域中，不论在何处定义了var变量，都会被提升到作用域顶部，但仅限于声明
+        function test1(){
+            console.log(temp);
+            var temp = "def";
+            // 上两行代码等价于以下三行代码
+            // var temp;
+            // console.log(temp);
+            // temp = "def";
+        }
+        test1(); // 输出：undefined
+
+        // 3.由于var变量提升的存在，多个相同的var变量名会自己在作用域顶部聚合而不会报错，所以可以在不确定是否声明过时直接使用
+        var aaa;
+        var aaa; // 不会报错
+
+        // 4.同样由于var变量提升的原因，不要在for循环的条件中使用var关键字
+        for (var i = 0; i < 3; i++) {
+        }
+        console.log(i); // 输出：3
+
+        // 5.var在全局作用域中声明的变量会成为window对象的属性
+        var hello = "hello";
+        console.log(window.hello); // 输出hello
+
+        // 6.在非JavaScript的严格模式中，可以直接定义变量名赋并赋值，省略前面的关键字，那么就是默认创建了一个全局变量
+        function test3(){
+            temp = "abc";
+        }
+        test3();
+        console.log(temp); // 输出：abc
+    </script>
+</body>
+</html>

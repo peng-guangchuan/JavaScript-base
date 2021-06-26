@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 流程控制，顺序结构，默认都是顺序结构，从头到尾
+        // 分支控制，if语句，不同的分支。升级版if-else和if-else if-else
+        // 三元运算符组成三元表达式：
+        var b = 3;
+        var c = 2;
+        var a = b>c?b:c;// 若b>c则，a等于b，反之为c。
+        // 分支控制，switch语句
+        var num = 1;
+        switch (num) { // case的比较为 ===
+            case 1:
+                console.log(1);
+                break; // 不设置break，则会执行后续的case
+            case 2:
+                console.log(2);
+                break;
+            default:
+                console.log('default');
+                break;
+        }
+
+        // 流程控制：for循环
+        // for(初始化变量；条件表达式；操作表达式){}
+        var array = [2,10,100,1000,10000]
+        for (let index = 0; index < array.length; index++) {
+            console.log("for:"+array[index]);
+        }
+        for (const a in array) {
+            console.log("forin:"+array[a]);
+        }
+        for (const a of array) {
+            console.log("forof:"+a);
+        }
+        array.forEach(element => {
+            console.log("foreach:"+element);
+        });
+        // 打印 九九乘法表
+        var str = '';
+        for (let i = 1; i <= 9; i++) {
+            for (let j = 1; j <= i ; j++) {
+                str += j + '×' + i + '=' + (i*j) + '\t';
+            }
+            str += '\n';
+        }
+        console.log(str);
+
+        // 流程控制：while循环，while(条件表达式){}。do{}while{}，会至少执行一次do的代码块
+        var count = 10;
+        while (count<=15) {
+            console.log('count='+count++);
+        }
+        do {
+            console.log("dowhile:");
+        } while (count == 10);
+
+        // continue,退出本次循环，后面的循环继续
+        for (let i = 0; i < 5; i++) {
+            if (i == 3) {
+                continue;
+            }
+            console.log("continue:" + i);
+        }
+        // break，退出当前循环体
+        for (let i = 0; i < 5; i++) {
+            if (i == 3) {
+                break;
+            }
+            console.log("break:" + i);
+        }
+    </script>
+</body>
+</html>

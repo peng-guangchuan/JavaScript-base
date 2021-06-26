@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 数组是一种特殊的变量，它能够一次存放一个以上的值。JavaScript 数组（Array）用于在单一变量中存储多个值。
+        // 1. 创建方式: new 操作符
+        var arr = new Array(); // 创建空数组arr
+        var arr = new Array(20); // 创建长度为20的空数组arr
+        var arr = new Array('abc'); // 创建一个只有'abc'元素的数组arr
+        var arr = new Array('a', 2, 'b'); // 创建有内容数组arr
+        // 2. 创建方法：[] 数组字面量
+        var arr = [];
+        var arr = [1, '二', 'three', true];
+
+        // 数组空位
+        const options = [, , , , ,]; // 创建包含 5 个元素的数组
+        console.log(options.length); // 5 
+        console.log(options); // [,,,,,] 
+        const options2 = [1, , , , 5];
+        for (const option of options2) {
+            console.log(option === undefined); // false,true,true,true,false
+        }
+
+        var arr = ['a','b','c'];
+        console.log(arr.length); // 3
+        // 通过修改length属性，改变数组
+        arr.length = 2;
+        console.log(arr); // ["a", "b"]
+        arr.length = 4;
+        console.log(arr); // ["a", "b", empty × 2]
+        // 常用实践
+        var arr = [1,2,3];
+        for (let i = 4; i <= 10; i++) {
+            arr[arr.length] = i;
+        }
+        console.log(arr); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        // var arr = new Array(4294967296); // 报错：Invalid array length
+        console.log(arr);
+
+
+        // 可以修改Array.length的值，达到动态修改数组容量
+        // 也可以直接追加，如：长度为3的数组，直接arr[3] = 1;长度变为4；
+        var arr2 = [];
+        for (let i = 0; i < arr.length; i++) {
+            arr2[arr2.length] = arr[i];
+        }
+
+        const zeroes = [0, 0, 0, 0, 0];
+        zeroes.fill(8, -4, -1); // 负值索引从数组末尾开始计算,-4,-1为倒数第四个到倒数第二个。
+        console.log(zeroes); // [0, 8, 8, 8, 0]; 
+        // 检测是否为数组
+        console.log(zeroes instanceof Array); // true
+        var obj = {};
+        console.log(obj instanceof Object); // true
+        console.log(Array.isArray(zeroes)); // true，HTML5新增
+
+        // 增加新元素。
+        // push() 从数组尾部添加新元素，返回新长度
+        console.log(zeroes.push('123',9)); // 7
+        console.log(zeroes); // [0, 8, 8, 8, 0, "123", 9]
+        // unshift() 从数组开头增加，返回新长度
+        console.log(zeroes.unshift(-2,-1)); // 9 
+        console.log(zeroes); // [-2, -1, 0, 8, 8, 8, 0, "123", 9]
+
+        // 删除元素
+        // pop() 从数组尾部删除最后一个元素，并返回删除的元素
+        console.log(zeroes.pop()); // 9
+        console.log(zeroes); //  [-2, -1, 0, 8, 8, 8, 0, "123"]
+        // shift() 从数组的头部删除第一个元素，并返回删除值
+        console.log(zeroes.shift()); // -2
+        console.log(zeroes); // [-1, 0, 8, 8, 8, 0, "123"]
+
+        // 数组排序
+        // reverse() 反转数组
+        console.log(zeroes.reverse()); // ["123", 0, 8, 8, 8, 0, -1]
+        // sort() 排序数组
+        console.log(zeroes.sort()); // ["123", 0, 8, 8, 8, 0, -1]
+        zeroes.sort(function(a,b){
+            return a - b; // 升序
+            // return b - a; // 降序
+        });
+        console.log(zeroes); // [-1, 0, 0, 8, 8, 8, "123"]
+
+        // 数组索引
+        // indexOf() 从头开始返回参数值第一次出现的位置，未找到返回-1
+        console.log(zeroes.indexOf('123')); // 6
+        console.log(zeroes.indexOf(10)); // -1
+        // lastIndexOf() 从后查找第一次出现的位置，未找到返回-1
+        console.log(zeroes.lastIndexOf('123')); // 6
+        console.log(zeroes.lastIndexOf(10)); // -1
+
+        // 数组转字符串
+        // toString()
+        console.log(zeroes.toString()); // -1,0,0,8,8,8,123
+        // join()
+        console.log(zeroes.join('-')); // -1-0-0-8-8-8-123
+
+        // concat() slice() splice()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 复杂数据类型才有熟悉和方法。String、Number、Boolean对象属于基本类型包装，把简单数据类型包装成复杂数据类型。
+        var str1 = 'abc'
+        var str2 = new String('defg');
+        console.log(str1); // abc
+        console.log(str1.length); // 3
+        str1 = str2;
+        console.log(str1); // String对象
+        str1 = null;
+        console.log(str1); // null
+
+        // 包装过程
+        // 1,生成临时变量，把简单类型包装为复杂数据类型
+        var temp = new String('abc');
+        // 2,赋值给我们声明的字符变量
+        str = temp;
+        // 3,销毁临时变量
+        temp = null;
+
+        // 字符串不可变，修改或拼接字符串是创建一个新的内存并指向变量，每次操作返回新的字符串
+        
+        // 获取字符位置
+        // indexOf('要查找的字符',[起始位置])，从前开始查找
+        var str = 'abcdebfgb';
+        console.log(str.indexOf('b')); // 1
+        console.log(str.indexOf('b',3)); // 5
+        // lastIndexOf()，从后开始查找
+        console.log(str.lastIndexOf('b')); // 8
+
+        // 根据位置返回字符
+        // charAt(index) 获取index位置的字符
+        console.log(str.charAt(3)); // d
+        // charCodeAt(index) 获取index位置的ASCII码
+        console.log(str.charCodeAt(0)); // 97
+        // str[index] 获取index位置的字符,H5新增
+        console.log(str[3]); // d
+
+        // 拼接和截取字符串
+        var str = 'abc';
+        console.log(str+'def'); // abcdef
+        // concat('字符串1','字符串2',...) 拼接方法,从尾部开始拼接
+        console.log(str.concat('def','ghi')); // abcdefghi
+        // sbstr('起始位置','字符长度') 截取字符串方法
+        console.log(str.substr(0,2)); // ab
+        // replace('被替换的字符串','替换为的字符串') 字符串替换
+        console.log(str.replace('a',1)); // 1bc
+        // 分割字符串=>字符串转数组 split('分割符')
+        var str = 'a,b,c';
+        console.log(str.split(',')); // ["a", "b", "c"]
+        console.log(str.split('b')); // ["a,", ",c"]
+    </script>
+</body>
+</html>

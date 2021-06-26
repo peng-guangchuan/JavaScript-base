@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //转字符串： toString()  String()  “+”拼接符
+        var num = 10;
+        var str = num.toString(); // 显示转换
+        console.log(typeof str);
+        console.log(typeof (String(num))); // 强制转换
+        console.log(typeof (num + "")); // 显式转换
+        //转数字型： parseInt()  parseFloat()  Number()  “- * /”符号
+        var str = '10';
+        console.log(typeof(parseInt(str)));
+        console.log(typeof(parseInt('3.14'))); // 取证，为3
+        console.log(typeof(parseFloat('3.14'))); // 完整小数
+        console.log(parseInt('123abc')); // 结果为123，abc被省略，如果字母开头则为NaN
+        console.log(Number('3.14')) // 强制转型，小数也ok
+        console.log('12' - 1); // 隐式转换
+        console.log('12' * 2); // 隐式转换
+        console.log('12' / 3); // 隐式转换
+        //转布尔型： Boolean()。当遇到其他类型数据转布尔类型时，有一些规则。
+        //空代表false，如：'',"",0,NaN,null,undefined。其余的为true
+        console.log(Boolean(''));
+        console.log(Boolean(""));
+        console.log(Boolean(0));
+        console.log(Boolean(123));
+        console.log(Boolean('啊'));
+    </script>
+</body>
+
+</html>
